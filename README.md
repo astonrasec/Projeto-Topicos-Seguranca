@@ -173,9 +173,10 @@ cd Projeto-Topicos-Seguranca
 
 ## 👥 Equipa
 
-- **Estudante 1**: [Número de Estudante]
-- **Estudante 2**: [Número de Estudante]
-- **Estudante 3**: [Número de Estudante]
+- **Diogo Gomes Almeida**: 2024153720
+- **<Nome aluno 2>**: 2390000
+- **<Nome aluno 3>**: 2390000
+- **<Nome aluno 4>**: 2390000
 
 ## 🔗 Links Úteis
 
