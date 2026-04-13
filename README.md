@@ -173,6 +173,30 @@ cd Projeto-Topicos-Seguranca
 - `Enunciado.pdf` - Especificação completa do projeto
 - `IPL-TeSP-PSI-TS-2024_Relatório.docx` - Template do relatório
 
+### ✏️ Status do Relatório (Fase I)
+
+**Secções Preenchidas:**
+- ✅ 1. Introdução
+- ✅ 2. Especificação do Sistema
+- ✅ 2.1 Especificação de Requisitos
+- ✅ 2.1.1 Requisitos Funcionais (RF)
+- ✅ 2.1.2 Requisitos Não Funcionais (RNF)
+  - ✅ 2.1.2.1 Usabilidade
+  - ✅ 2.1.2.2 Fiabilidade
+  - ✅ 2.1.2.3 Segurança
+  - ✅ 2.1.2.4 Eficiência
+  - ✅ 2.1.2.5 Disponibilidade
+  - ✅ 2.1.2.6 Ambiente
+  - ✅ 2.1.2.7 Desenvolvimento
+- ✅ 3. Conclusão
+
+**Secções em Falta a Preencher:**
+- ❌ 2.1.1 Tabela de RF - Coluna "Implementado" (marcas X na Fase II)
+- ❌ 2.1.2 Tabelas de RNF - Coluna "Implementado" (marcas X na Fase II)
+- ❌ Diagramas e figuras (opcional)
+- ❌ Referências bibliográficas (opcional)
+- ❌ Dados da equipa (Números de Estudante)
+
 ## 👥 Equipa
 
 - **Estudante 1**: [Número de Estudante]
