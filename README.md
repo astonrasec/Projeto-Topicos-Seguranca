@@ -40,34 +40,6 @@ Desenvolvimento de um **sistema de chat seguro** em C# que implementa mecanismos
    └──────────┘   └──────────┘            └───────────┘
 ```
 
-## 📊 Requisitos Funcionais (RF)
-
-| ID | Descrição | Prioridade |
-|---|---|---|
-| RF-01 | Enviar chave pública do cliente ao servidor | Alta |
-| RF-02 | Servidor receber e armazenar chave pública | Alta |
-| RF-03 | Servidor gerar e enviar chave simétrica cifrada | Alta |
-| RF-04 | Cliente receber e decifrar chave simétrica | Alta |
-| RF-05 | Cliente autenticar-se com credenciais cifradas | Alta |
-| RF-06 | Servidor validar credenciais do utilizador | Alta |
-| RF-07 | Cliente enviar mensagens cifradas | Alta |
-| RF-08 | Servidor validar assinatura e guardar mensagens | Alta |
-| RF-09 | Servidor distribuir mensagens entre clientes | Alta |
-| RF-10 | Cliente receber e decifrar mensagens | Alta |
-| RF-11 | Suportar múltiplos clientes simultâneos | Alta |
-| RF-12 | Criar log (.txt) com operações do servidor | Média |
-
-## 🔒 Requisitos Não Funcionais - Segurança
-
-| ID | Descrição | Prioridade |
-|---|---|---|
-| RNF-SEG-01 | Criptografia Assimétrica (RSA) para troca de chaves | Alta |
-| RNF-SEG-02 | Criptografia Simétrica (AES) para mensagens | Alta |
-| RNF-SEG-03 | Hash com salt (MD5) para credenciais | Alta |
-| RNF-SEG-04 | Validar assinaturas digitais | Alta |
-| RNF-SEG-05 | Salt aleatório único por utilizador | Alta |
-| RNF-SEG-06 | Comunicação apenas cifrada | Alta |
-
 ## 🛠️ Tecnologias Utilizadas
 
 - **Linguagem**: C# (.NET Framework)
@@ -173,9 +145,9 @@ cd Projeto-Topicos-Seguranca
 - `Enunciado.pdf` - Especificação completa do projeto
 - `IPL-TeSP-PSI-TS-2024_Relatório.docx` - Template do relatório
 
-### ✏️ Status do Relatório (Fase I)
+### ✏️ Status do Projeto - Fase I (20%)
 
-**Secções Preenchidas:**
+**Relatório - Secções Preenchidas:**
 - ✅ 1. Introdução
 - ✅ 2. Especificação do Sistema
 - ✅ 2.1 Especificação de Requisitos
@@ -188,24 +160,22 @@ cd Projeto-Topicos-Seguranca
   - ✅ 2.1.2.5 Disponibilidade
   - ✅ 2.1.2.6 Ambiente
   - ✅ 2.1.2.7 Desenvolvimento
-- ✅ 3. Conclusão
+- ❌ 3. Conclusão
 
-**Secções em Falta a Preencher:**
-- ❌ 2.1.1 Tabela de RF - Coluna "Implementado" (marcas X na Fase II)
-- ❌ 2.1.2 Tabelas de RNF - Coluna "Implementado" (marcas X na Fase II)
-- ❌ Diagramas e figuras (opcional)
-- ❌ Referências bibliográficas (opcional)
-- ❌ Dados da equipa (Números de Estudante)
+**Fase I - O que falta implementar:**
+- ❌ Relatório de Análise de Requisitos (completo com conclusão)
+- ❌ Aplicação Windows Form (Cliente) com troca de mensagens
+- ❌ Aplicação Console (Servidor) com suporte a múltiplos clientes
+- ❌ Troca de mensagens Cliente1 ↔ Servidor ↔ Cliente2 (sem cifragem)
+
+**Fase I - Para depois (Fase II):**
+- ❌ Coluna "Implementado" nas tabelas de RF e RNF (marcar X após implementar)
 
 ## 👥 Equipa
 
 - **Estudante 1**: [Número de Estudante]
 - **Estudante 2**: [Número de Estudante]
 - **Estudante 3**: [Número de Estudante]
-
-## 📞 Dúvidas
-
-Para dúvidas sobre o enunciado, contactar o docente de **Tópicos de Segurança**.
 
 ## 🔗 Links Úteis
 
