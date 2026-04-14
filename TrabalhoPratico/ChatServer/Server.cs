@@ -92,8 +92,8 @@ namespace ChatServer
             listener.Start();
 
             Console.WriteLine("=== Servidor de Chat - Fase I ===");
-            Console.WriteLine("À escuta na porta {0}...", PORT);
-            Console.WriteLine("Aguardando ligações de clientes...");
+            Console.WriteLine("Aberta a porta {0}...", PORT);
+            Console.WriteLine("Aguardar ligações...");
             Console.WriteLine();
 
             // Contador para dar um ID único a cada cliente

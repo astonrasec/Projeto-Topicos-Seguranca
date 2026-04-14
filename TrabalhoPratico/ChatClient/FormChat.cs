@@ -134,7 +134,7 @@ namespace ChatClient
 
             // Atualizar a interface com o nome do utilizador
             this.Text         = "Chat - " + username;          // Título da janela
-            labelStatus.Text  = "Conectado como: " + username; // Etiqueta de estado
+            labelStatus.Text  = "Nome de utilizador: " + username; // Etiqueta de estado
 
             // Mensagem de boas-vindas no chat
             AppendMessage("=== Bem-vindo ao Chat, " + username + "! ===");
@@ -454,6 +454,11 @@ namespace ChatClient
         private void FormChat_FormClosing(object sender, FormClosingEventArgs e)
         {
             Disconnect();
+        }
+
+        private void FormChat_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
