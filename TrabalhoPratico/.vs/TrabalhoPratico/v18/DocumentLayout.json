@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\Documents\\IPL\\Seguran\u00E7a\\TrabalhoPratico\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2A3B4C5D-6E7F-8A9B-0C1D-2E3F4A5B6C7D}|ChatClient\\ChatClient.csproj|c:\\users\\administrator\\documents\\ipl\\seguran\u00E7a\\trabalhopratico\\chatclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A3B4C5D-6E7F-8A9B-0C1D-2E3F4A5B6C7D}|ChatClient\\ChatClient.csproj|solutionrelative:chatclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3B4C5D6E-7F8A-9B0C-1D2E-3F4A5B6C7D8E}|ChatServer\\ChatServer.csproj|c:\\users\\administrator\\documents\\ipl\\seguran\u00E7a\\trabalhopratico\\chatserver\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B4C5D6E-7F8A-9B0C-1D2E-3F4A5B6C7D8E}|ChatServer\\ChatServer.csproj|solutionrelative:chatserver\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\IPL\\Seguran\u00E7a\\TrabalhoPratico\\ChatClient\\Program.cs",
+              "RelativeDocumentMoniker": "ChatClient\\Program.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\IPL\\Seguran\u00E7a\\TrabalhoPratico\\ChatClient\\Program.cs",
+              "RelativeToolTip": "ChatClient\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T17:32:34.516Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Server.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\IPL\\Seguran\u00E7a\\TrabalhoPratico\\ChatServer\\Server.cs",
+              "RelativeDocumentMoniker": "ChatServer\\Server.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\IPL\\Seguran\u00E7a\\TrabalhoPratico\\ChatServer\\Server.cs",
+              "RelativeToolTip": "ChatServer\\Server.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T17:29:00.214Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

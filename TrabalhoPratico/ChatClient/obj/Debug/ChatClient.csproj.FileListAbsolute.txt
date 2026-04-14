@@ -1,0 +1,12 @@
+C:\Users\Administrator\Documents\IPL\Segurança\TrabalhoPratico\ChatClient\bin\Debug\ChatClient.exe.config
+C:\Users\Administrator\Documents\IPL\Segurança\TrabalhoPratico\ChatClient\bin\Debug\ChatClient.exe
+C:\Users\Administrator\Documents\IPL\Segurança\TrabalhoPratico\ChatClient\bin\Debug\ChatClient.pdb
+C:\Users\Administrator\Documents\IPL\Segurança\TrabalhoPratico\ChatClient\bin\Debug\ProtocolSI.dll
+C:\Users\Administrator\Documents\IPL\Segurança\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.csproj.AssemblyReference.cache
+C:\Users\Administrator\Documents\IPL\Segurança\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.FormLogin.resources
+C:\Users\Administrator\Documents\IPL\Segurança\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.FormChat.resources
+C:\Users\Administrator\Documents\IPL\Segurança\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.csproj.GenerateResource.cache
+C:\Users\Administrator\Documents\IPL\Segurança\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\IPL\Segurança\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.csproj.Up2Date
+C:\Users\Administrator\Documents\IPL\Segurança\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.exe
+C:\Users\Administrator\Documents\IPL\Segurança\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.pdb
