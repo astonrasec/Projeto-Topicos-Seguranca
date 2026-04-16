@@ -1,11 +1,3 @@
-// ============================================================
-// BIBLIOTECAS / NAMESPACES UTILIZADOS
-// ============================================================
-// EI.SI           → biblioteca ProtocolSI para construir/interpretar pacotes
-// System.Net      → IPAddress, IPEndPoint
-// System.Net.Sockets → TcpClient, NetworkStream
-// System.Windows.Forms → Form, MessageBox, TextBox, Button, etc.
-// ============================================================
 using EI.SI;
 using System;
 using System.Net;
@@ -14,28 +6,10 @@ using System.Windows.Forms;
 
 namespace ChatClient
 {
-    // ============================================================
-    // CONCEITO: Windows Forms
-    //
-    // Uma aplicação Windows Forms é baseada em eventos.
-    // O programa corre num ciclo de mensagens (message loop) e
-    // quando o utilizador faz algo (clica, escreve, fecha a janela),
-    // é chamado o "event handler" correspondente.
-    //
-    // A classe FormLogin é "partial" — o código dos controlos
-    // gráficos (botões, textboxes, etc.) está no ficheiro
-    // FormLogin.Designer.cs, gerado automaticamente.
-    // ============================================================
-
     /// <summary>
-    /// Formulário de Login — primeiro ecrã da aplicação cliente.
-    ///
-    /// RESPONSABILIDADE:
-    ///   - Recolher o nome de utilizador e o IP do servidor
-    ///   - Validar os campos antes de tentar ligar
-    ///   - Estabelecer a ligação TCP com o servidor
-    ///   - Enviar o username ao servidor (handshake inicial)
-    ///   - Aguardar confirmação (ACK) e abrir o FormChat
+    /// Formulário de login — primeiro ecrã da aplicação.
+    /// Recolhe o nome de utilizador e o IP do servidor,
+    /// estabelece a ligação TCP e abre o FormChat se o servidor aceitar.
     /// </summary>
     public partial class FormLogin : Form
     {
@@ -47,39 +21,21 @@ namespace ChatClient
         }
 
         /// <summary>
-        /// EVENT HANDLER do botão "Conectar".
-        ///
-        /// Este método é chamado AUTOMATICAMENTE pelo Windows quando
-        /// o utilizador clica no botão. O event handler recebe dois
-        /// parâmetros por convenção: o objeto que gerou o evento (sender)
-        /// e informação adicional sobre o evento (e).
-        ///
-        /// FLUXO COMPLETO:
-        ///   1. Ler e validar os campos do formulário
-        ///   2. Criar ligação TCP ao servidor (IPEndPoint + TcpClient)
-        ///   3. Obter o NetworkStream (canal de comunicação)
-        ///   4. Criar instância de ProtocolSI
-        ///   5. Enviar pacote USER_OPTION_1 com o username
-        ///   6. Aguardar ACK do servidor
-        ///   7. Se ACK recebido → abrir FormChat, esconder este formulário
+        /// Valida os campos, liga ao servidor via TCP, envia o username
+        /// com USER_OPTION_1 e aguarda ACK antes de abrir o FormChat.
+        /// O botão é desativado durante a tentativa para evitar cliques duplos.
         /// </summary>
         private void buttonConnect_Click(object sender, EventArgs e)
         {
-            // Ler os valores dos campos e remover espaços em branco extra
             string username = textBoxUsername.Text.Trim();
             string ip       = textBoxIP.Text.Trim();
 
-            // --------------------------------------------------------
-            // VALIDAÇÃO DOS CAMPOS
-            // É boa prática validar inputs do utilizador ANTES de tentar
-            // qualquer operação de rede — evita erros desnecessários.
-            // --------------------------------------------------------
             if (string.IsNullOrEmpty(username))
             {
                 MessageBox.Show("Por favor introduza um nome de utilizador.",
                     "Campo obrigatório", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBoxUsername.Focus(); // Colocar cursor no campo em falta
-                return;                 // Sair do método sem fazer nada
+                textBoxUsername.Focus();
+                return;
             }
 
             if (string.IsNullOrEmpty(ip))
@@ -90,102 +46,32 @@ namespace ChatClient
                 return;
             }
 
-            // Desativar o botão enquanto tenta ligar — impede cliques duplos
-            // que criariam duas ligações ao mesmo tempo
             buttonConnect.Enabled = false;
 
             try
             {
-                // --------------------------------------------------------
-                // PASSO 1: CRIAR O ENDPOINT
-                //
-                // IPAddress.Parse(ip) → converte a string "127.0.0.1"
-                //                       para um objeto IPAddress
-                // IPEndPoint           → combina IP + Porta num único objeto
-                //                       que identifica o destino da ligação
-                // --------------------------------------------------------
+                // Estabelecer ligação TCP ao servidor
                 IPEndPoint endpoint = new IPEndPoint(IPAddress.Parse(ip), PORT);
-
-                // --------------------------------------------------------
-                // PASSO 2: CRIAR E LIGAR O TcpClient
-                //
-                // TcpClient → implementa o protocolo TCP do lado do cliente.
-                // Connect() → tenta estabelecer a ligação TCP ao servidor.
-                //             BLOQUEIA até conseguir ligar ou falhar.
-                //             Se o servidor não estiver a correr, lança exceção.
-                //
-                // TCP (Transmission Control Protocol):
-                //   - Protocolo orientado à ligação (connection-oriented)
-                //   - Garante entrega ordenada e sem erros
-                //   - Usa o mecanismo de "three-way handshake" (SYN, SYN-ACK, ACK)
-                // --------------------------------------------------------
                 TcpClient tcpClient = new TcpClient();
                 tcpClient.Connect(endpoint);
 
-                // --------------------------------------------------------
-                // PASSO 3: OBTER O NETWORKSTREAM
-                //
-                // GetStream() devolve o canal bidirecional de leitura/escrita.
-                // É através deste stream que enviamos e recebemos todos os dados.
-                // --------------------------------------------------------
                 NetworkStream stream = tcpClient.GetStream();
+                ProtocolSI protocol  = new ProtocolSI();
 
-                // --------------------------------------------------------
-                // PASSO 4: CRIAR INSTÂNCIA DO PROTOCOLSI
-                //
-                // ProtocolSI é a biblioteca fornecida que define:
-                //   - Como construir pacotes (Make)
-                //   - Como interpretar pacotes recebidos (GetCmdType, GetStringFromData)
-                //   - O Buffer onde os dados chegam (Buffer)
-                // --------------------------------------------------------
-                ProtocolSI protocol = new ProtocolSI();
-
-                // --------------------------------------------------------
-                // PASSO 5: ENVIAR O USERNAME AO SERVIDOR
-                //
-                // Make(USER_OPTION_1, username) → cria um pacote com:
-                //   - Cabeçalho: tipo USER_OPTION_1
-                //   - Dados: o texto do username
-                //
-                // stream.Write(packet, 0, packet.Length):
-                //   - packet   → o array de bytes a enviar
-                //   - 0        → índice de início no array
-                //   - packet.Length → quantos bytes enviar
-                //
-                // USER_OPTION_1 é usado por convenção para identificação.
-                // O servidor ao receber USER_OPTION_1 sabe que são
-                // credenciais/identificação do cliente.
-                // --------------------------------------------------------
+                // Enviar o username ao servidor — USER_OPTION_1 é o tipo
+                // acordado para a mensagem de identificação inicial
                 byte[] packet = protocol.Make(ProtocolSICmdType.USER_OPTION_1, username);
                 stream.Write(packet, 0, packet.Length);
 
-                // --------------------------------------------------------
-                // PASSO 6: AGUARDAR ACK DO SERVIDOR
-                //
-                // stream.Read(buffer, offset, count) → BLOQUEIA até chegarem
-                // dados. Quando chegam, preenche protocol.Buffer com os bytes.
-                //
-                // ACK (Acknowledgment) = confirmação positiva.
-                // O servidor envia ACK para dizer "username aceite, podes entrar".
-                // --------------------------------------------------------
+                // Aguardar confirmação do servidor
                 stream.Read(protocol.Buffer, 0, protocol.Buffer.Length);
 
-                // --------------------------------------------------------
-                // PASSO 7: VERIFICAR A RESPOSTA
-                // --------------------------------------------------------
                 if (protocol.GetCmdType() == ProtocolSICmdType.ACK)
                 {
-                    // --------------------------------------------------------
-                    // SERVIDOR ACEITOU → Abrir o formulário de chat
-                    //
-                    // Passamos ao FormChat tudo o que ele precisa:
-                    //   - tcpClient: para fechar a ligação no fim
-                    //   - stream: para continuar a comunicação
-                    //   - protocol: para construir pacotes de envio
-                    //   - username: para mostrar na interface
-                    // --------------------------------------------------------
+                    // Servidor aceitou: passar a ligação já aberta ao FormChat
                     FormChat chatForm = new FormChat(tcpClient, stream, protocol, username);
 
+<<<<<<< Updated upstream
                     // ALTERAÇÃO (Fase I - Múltiplos Clientes):
                     // Quando FormChat fecha, notifica ClientManager para decrementar contador.
                     // Isto permite que FormLauncher fique sincronizado com número real de clientes.
@@ -196,30 +82,32 @@ namespace ChatClient
                     // ClientManager dispara evento que FormLauncher escuta e atualiza label.
                     ClientManager.RegisterClient();
                     
+=======
+                    // Quando o FormChat fechar, terminar a aplicação —
+                    // sem isto o FormLogin ficaria escondido em memória
+                    chatForm.FormClosed += (s, args) => Application.Exit();
+
+>>>>>>> Stashed changes
                     chatForm.Show();
                     this.Hide();
                 }
                 else
                 {
-                    // O servidor respondeu com outro tipo — ligação recusada
                     MessageBox.Show("O servidor não aceitou a ligação.",
                         "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     stream.Close();
                     tcpClient.Close();
-                    buttonConnect.Enabled = true; // Permitir nova tentativa
+                    buttonConnect.Enabled = true;
                 }
             }
             catch (FormatException)
             {
-                // IPAddress.Parse() lança FormatException se o IP for inválido
-                // Ex: "abc.def.ghi.jkl" não é um IP válido
                 MessageBox.Show("Endereço IP inválido. Exemplo: 127.0.0.1",
                     "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 buttonConnect.Enabled = true;
             }
             catch (Exception ex)
             {
-                // Qualquer outro erro: servidor não está a correr, porta errada, etc.
                 MessageBox.Show("Erro ao conectar ao servidor:\n" + ex.Message,
                     "Erro de Ligação", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 buttonConnect.Enabled = true;
@@ -227,37 +115,32 @@ namespace ChatClient
         }
 
         /// <summary>
-        /// EVENT HANDLER de tecla no campo Username.
-        ///
-        /// Quando o utilizador prime Enter neste campo, move o foco
-        /// para o campo IP (navegação conveniente sem rato).
-        ///
-        /// e.KeyChar == (char)Keys.Return → verifica se foi a tecla Enter
-        /// e.Handled = true → diz ao Windows para NÃO processar mais
-        ///                     esta tecla (evita som de "beep" ou nova linha)
+        /// Enter no campo username move o foco para o campo IP.
         /// </summary>
         private void textBoxUsername_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Return)
             {
                 e.Handled = true;
-                textBoxIP.Focus(); // Mover cursor para o campo do IP
+                textBoxIP.Focus();
             }
         }
 
         /// <summary>
-        /// EVENT HANDLER de tecla no campo IP.
-        ///
-        /// Quando o utilizador prime Enter no campo do IP, é como
-        /// clicar no botão Conectar — chama diretamente o handler.
+        /// Enter no campo IP aciona o botão Conectar diretamente.
         /// </summary>
         private void textBoxIP_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Return)
             {
                 e.Handled = true;
-                buttonConnect_Click(sender, e); // Simular clique no botão
+                buttonConnect_Click(sender, e);
             }
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
