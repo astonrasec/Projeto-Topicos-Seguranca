@@ -1,0 +1,177 @@
+Curso de TeSP em 
+Programação de Sistemas de Informação
+Tópicos de SegurançaAno Letivo 2024/2025Av. Periódica1º Ano, 2º Semestre
+PROJETO DE TÓPICOS DE SEGURANÇA
+
+
+
+
+
+
+
+
+
+
+Relatório de Especificação de Requisitos do projeto de Tópicos de Segurança
+
+
+
+
+
+
+
+
+
+Turno: PL1Grupo: ADocente: Nuno SimõesNº 2024153720Diogo Gomes AlmeidaNº 2390000<Nome aluno 2>Nº 2390000<Nome aluno 3>Nº 2390000<Nome aluno 4>
+
+
+
+
+ÍNDICE
+1	INTRODUÇÃO	5
+2	ESPECIFICAÇÃO DO SISTEMA	6
+2.1	Especificação de Requisitos	6
+2.1.1	Requisitos Funcionais (RF)	6
+2.1.2	Requisitos Não Funcionais (RNF)	7
+2.1.3	Wireframes UI	14
+3	CONCLUSÃO	15
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ÍNDICE DE TABELAS
+
+Tabela 1 Requisitos Funcionais	5
+Tabela 2 Requisitos Não Funcionais de Usabilidade	6
+Tabela 3 Requisitos Não Funcionais de Fiabilidade	7
+Tabela 4 Requisitos Não Funcionais de Segurança	8
+Tabela 5 Requisitos Não Funcionais de Eficiência	9
+Tabela 6 Requisitos Não Funcionais de Disponibilidade	10
+Tabela 7 Requisitos Não Funcionais de Ambiente	11
+Tabela 8 Requisitos Não Funcionais de Desenvolvimento	12
+
+1 INTRODUÇÃO 
+Este projeto tem como objetivo o desenvolvimento de um sistema de chat seguro em C#, implementando mecanismos de criptografia (simétrica e assimétrica), autenticação e validação de dados através de assinaturas digitais. O sistema será composto por um módulo cliente com interface gráfica (Windows Forms) e um módulo servidor console, permitindo comunicação segura entre múltiplos clientes. 
+A segurança das comunicações será garantida através do uso de algoritmos criptográficos, sockets TCP/IP e protocolos de autenticação robustos.
+2 ESPECIFICAÇÃO DO SISTEMA
+O problema a resolver é a necessidade de um sistema de troca de mensagens seguro onde a confidencialidade, integridade e autenticação dos dados são críticas. 
+O sistema deve permitir que múltiplos clientes se conectem a um servidor central, autentiquem-se com credenciais, e troquem mensagens cifradas de forma segura. 
+O servidor deve validar todas as assinaturas digitais das mensagens, armazenar as chaves públicas dos clientes e manter um registo seguro de todas as operações.
+
+2.1 Especificação de Requisitos
+
+2.1.1 Requisitos Funcionais (RF)
+<Contextualização de requisitos funcionais a implementar>
+<etapa II – marcar com um X na coluna “Implementado”>
+
+# IDDescriçãoPrioridadeImplementadoRF-01Enviar chave pública do cliente ao servidorAltaRF-02Servidor receber e armazenar chave pública do clienteAltaRF-03Servidor gerar e enviar chave simétrica cifrada com chave pública do clienteAltaRF-04Cliente receber e decifrar chave simétricaAltaRF-05Cliente autenticar-se no servidor com credenciais cifradasAltaRF-06Servidor validar credenciais do utilizador autenticadoAltaRF-07Cliente enviar mensagens de chat cifradas com chave simétricaAltaRF-08Servidor receber, validar assinatura e guardar mensagens cifradasAltaRF-09Servidor distribuir mensagens cifradas entre clientesAltaRF-10Cliente receber e decifrar mensagens do servidorAltaTabela 1 Requisitos Funcionais
+
+
+
+2.1.2 Requisitos Não Funcionais (RNF)
+<Contextualização de requisitos não funcionais a implementar >
+
+
+2.1.2.1 Requisitos Não Funcionais de Usabilidade
+
+<Contextualização de requisitos não funcionais de usabilidade a implementar>
+<etapa II – marcar com um X na coluna “Implementado”>
+
+# IDDescriçãoPrioridadeImplementadoRNF-USA-01Interface gráfica em Windows Forms clara e intuitivaAltaRNF-USA-02Mensagens de erro/sucesso informativas ao utilizadorAltaRNF-USA-03Indicador visual de estado de conexão com servidorMédiaRNF-USA-04Histórico de mensagens visível e navegávelMédiaTabela 2 Requisitos Não Funcionais de Usabilidade
+
+
+
+
+2.1.2.2 Requisitos Não Funcionais de Fiabilidade
+
+<Contextualização de requisitos não funcionais de fiabilidade a implementar>
+<etapa II – marcar com um X na coluna “Implementado”>
+
+# IDDescriçãoPrioridadeImplementadoRNF-FIA-01Servidor continuar a funcionar com falha de um clienteAltaRNF-FIA-02Reconexão automática do cliente em caso de perda de conexãoMédiaRNF-FIA-03Validação de integridade de todas as mensagens recebidasAltaRNF-FIA-04Sistema registar todas as operações em log para auditoriaAltaTabela 3 Requisitos Não Funcionais de Fiabilidade
+
+
+
+
+2.1.2.3 Requisitos Não Funcionais de Segurança
+
+<Contextualização de requisitos não funcionais de segurança a implementar>
+<etapa II – marcar com um X na coluna “Implementado”>
+
+# IDDescriçãoPrioridadeImplementadoRNF-SEG-01Utilizar criptografia assimétrica (RSA) para troca de chavesAltaRNF-SEG-02Utilizar criptografia simétrica (AES) para cifrar mensagensAltaRNF-SEG-03Armazenar credenciais com hash (MD5 com salt)AltaRNF-SEG-04Validar assinaturas digitais de todas as mensagensAltaTabela 4 Requisitos Não Funcionais de Segurança
+
+
+
+2.1.2.4 Requisitos Não Funcionais de Eficiência 
+
+<Contextualização de requisitos não funcionais de eficiência a implementar>
+<etapa II – marcar com um X na coluna “Implementado”>
+
+# IDDescriçãoPrioridadeImplementadoRNF-EFI-01Servidor processar múltiplos clientes com threadsAltaRNF-EFI-02Tempo de resposta do servidor inferior a 500msMédiaRNF-EFI-03Operações de Criptografia optimizadasMédiaRNF-EFI-04Log do sistema não exceder limite de memóriaMédiaTabela 5 Requisitos Não Funcionais de Eficiência
+
+
+
+
+
+
+
+
+
+
+
+2.1.2.5 Requisitos Não Funcionais de Disponibilidade
+
+<Contextualização de requisitos não funcionais de disponibilidade a implementar>
+<etapa II – marcar com um X na coluna “Implementado”>
+
+# IDDescriçãoPrioridadeImplementadoRNF-DIS-01Servidor disponível 24/7 com mínimo de interrupçõesAltaRNF-DIS-02Sistema recuperar automaticamente de falhas de conexãoAltaRNF-DIS-03Servidor suportar pelo menos 10 clientes simultâneosMédiaRNF-DIS-04Mensagens não perdidas mesmo com desconexão inesperadaAltaTabela 6 Requisitos Não Funcionais de Disponibilidade
+
+
+
+
+2.1.2.6 Requisitos Não Funcionais de Ambiente
+
+<Contextualização de requisitos não funcionais de ambiente a implementar>
+<etapa II – marcar com um X na coluna “Implementado”>
+
+# IDDescriçãoPrioridadeImplementadoRNF-AMB-01Compatibilidade com Windows 7 ou superiorAltaRNF-AMB-02Requer .NET Framework 4.8 ou superiorAltaRNF-AMB-03Suportar Visual Studio 2019 ou superiorMédiaRNF-AMB-04Base de dados SQL Server ou Entity FrameworkMédiaTabela 7 Requisitos Não Funcionais de Ambiente
+
+
+
+
+
+
+
+
+2.1.2.7 Requisitos Não Funcionais de Desenvolvimento
+
+<Contextualização de requisitos não funcionais de desenvolvimento a implementar>
+<etapa II – marcar com um X na coluna “Implementado”>
+
+# IDDescriçãoPrioridadeImplementadoRNF-DES-01Código comentado com documentação de funçõesAltaRNF-DES-02Guia de instalação e configuração fornecidoAltaRNF-DES-03Projeto testado em ambiente de raizAltaRNF-DES-04Ficheiro .sql fornecido se utilizar base de dadosMédiaTabela 8 Requisitos Não Funcionais de Desenvolvimento
+
+
+2.1.3 Wireframes UI
+<Contextualização das wireframes desenvolvidas>
+
+3 CONCLUSÃO
+<Apresentação de pontos importantes e conclusivos sobre o desenvolvimento do projeto>
+
+
+
+   
+
+
+    
+
+
