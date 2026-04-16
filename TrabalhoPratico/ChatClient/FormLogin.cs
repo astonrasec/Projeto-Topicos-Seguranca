@@ -39,17 +39,8 @@ namespace ChatClient
     /// </summary>
     public partial class FormLogin : Form
     {
-        // --------------------------------------------------------
-        // A porta tem de ser IGUAL à do servidor.
-        // Ambos devem usar a porta 10000 para comunicar.
-        // --------------------------------------------------------
         private const int PORT = 10000;
 
-        /// <summary>
-        /// Construtor: chamado quando a aplicação arranca.
-        /// InitializeComponent() cria todos os controlos gráficos
-        /// definidos no FormLogin.Designer.cs.
-        /// </summary>
         public FormLogin()
         {
             InitializeComponent();
@@ -195,13 +186,18 @@ namespace ChatClient
                     // --------------------------------------------------------
                     FormChat chatForm = new FormChat(tcpClient, stream, protocol, username);
 
-                    // Quando o FormChat fechar, terminar a aplicação completamente.
-                    // Como o FormLogin ficou escondido (Hide), sem isto a aplicação
-                    // ficaria "presa" em memória mesmo sem janelas visíveis.
-                    chatForm.FormClosed += (s, args) => Application.Exit();
-
-                    chatForm.Show(); // Mostrar a janela de chat
-                    this.Hide();    // Esconder o ecrã de login (não fechar!)
+                    // ALTERAÇÃO (Fase I - Múltiplos Clientes):
+                    // Quando FormChat fecha, notifica ClientManager para decrementar contador.
+                    // Isto permite que FormLauncher fique sincronizado com número real de clientes.
+                    chatForm.FormClosed += (s, args) => ClientManager.UnregisterClient();
+                    
+                    // ALTERAÇÃO (Fase I - Múltiplos Clientes):
+                    // Registra este cliente como ativo no ClientManager.
+                    // ClientManager dispara evento que FormLauncher escuta e atualiza label.
+                    ClientManager.RegisterClient();
+                    
+                    chatForm.Show();
+                    this.Hide();
                 }
                 else
                 {
