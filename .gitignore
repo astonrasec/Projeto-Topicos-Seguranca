@@ -1,0 +1,12 @@
+.env
+.env.local
+.env.*.local
+bin/
+obj/
+.vs/
+*.exe
+*.pdb
+*.dll
+.idea/
+.vscode/
+node_modules/
