@@ -10,3 +10,18 @@ obj/
 .idea/
 .vscode/
 node_modules/
+
+# Scripts e testes (insignificantes)
+run-tests.ps1
+*.log
+TEST_EXECUTION_LOG.txt
+server_output.log
+
+# JIRA (remover do repo)
+JIRA/
+
+# Ficheiros temporários
+*.tmp
+*.bak
+*.swp
+*~

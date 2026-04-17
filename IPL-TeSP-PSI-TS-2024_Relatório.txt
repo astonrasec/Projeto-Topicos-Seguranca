@@ -22,7 +22,7 @@ Relatório de Especificação de Requisitos do projeto de Tópicos de Segurança
 
 
 
-Turno: PL1Grupo: ADocente: Nuno SimõesNº 2024153720Diogo Gomes AlmeidaNº 2390000<Nome aluno 2>Nº 2390000<Nome aluno 3>Nº 2390000<Nome aluno 4>
+Turno: PL1Grupo: ADocente: Nuno SimõesNº 2024153720Diogo Gomes AlmeidaNº 2025152794Vitor Emanuel Louro LeonardoNº 2025153175Kelly Ferreira
 
 
 
@@ -62,8 +62,8 @@ Tabela 7 Requisitos Não Funcionais de Ambiente	11
 Tabela 8 Requisitos Não Funcionais de Desenvolvimento	12
 
 1 INTRODUÇÃO 
-Este projeto tem como objetivo o desenvolvimento de um sistema de chat seguro em C#, implementando mecanismos de criptografia (simétrica e assimétrica), autenticação e validação de dados através de assinaturas digitais. O sistema será composto por um módulo cliente com interface gráfica (Windows Forms) e um módulo servidor console, permitindo comunicação segura entre múltiplos clientes. 
-A segurança das comunicações será garantida através do uso de algoritmos criptográficos, sockets TCP/IP e protocolos de autenticação robustos.
+Este projeto tem como objetivo o desenvolvimento de um sistema de chat seguro em C#, implementando mecanismos de criptografia (simétrica e assimétrica), autenticação e validação de dados, o sistema será composto por um módulo cliente com interface gráfica (Windows Forms) e um módulo servidor console, permitindo comunicação segura entre vários clientes. 
+A segurança das comunicações será garantida através do uso de algoritmos criptográficos, sockets TCP/IP e protocolos de autenticação.
 2 ESPECIFICAÇÃO DO SISTEMA
 O problema a resolver é a necessidade de um sistema de troca de mensagens seguro onde a confidencialidade, integridade e autenticação dos dados são críticas. 
 O sistema deve permitir que múltiplos clientes se conectem a um servidor central, autentiquem-se com credenciais, e troquem mensagens cifradas de forma segura. 
