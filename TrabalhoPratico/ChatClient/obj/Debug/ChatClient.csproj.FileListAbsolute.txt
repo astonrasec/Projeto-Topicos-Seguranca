@@ -22,3 +22,15 @@ C:\Users\Administrator\Documents\IPL\Repositorio_GIT\Projeto-Topicos-Seguranca\T
 C:\Users\Administrator\Documents\IPL\Repositorio_GIT\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.csproj.Up2Date
 C:\Users\Administrator\Documents\IPL\Repositorio_GIT\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.exe
 C:\Users\Administrator\Documents\IPL\Repositorio_GIT\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.pdb
+C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\bin\Debug\ChatClient.exe.config
+C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\bin\Debug\ChatClient.exe
+C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\bin\Debug\ChatClient.pdb
+C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\bin\Debug\ProtocolSI.dll
+C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.csproj.AssemblyReference.cache
+C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.FormLogin.resources
+C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.FormChat.resources
+C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.csproj.GenerateResource.cache
+C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.csproj.CoreCompileInputs.cache
+C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.csproj.Up2Date
+C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.exe
+C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.pdb

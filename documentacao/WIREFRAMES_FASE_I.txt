@@ -1,0 +1,127 @@
+# WIREFRAMES - Sistema de Chat Seguro - Fase I
+
+## 1. FormLauncher - Gestor de Clientes
+
+```
+╔═══════════════════════════════════════════════════════════╗
+║                                                           ║
+║        Sistema de Chat - Múltiplos Clientes              ║
+║                                                           ║
+║                                                           ║
+║  ┌─────────────────────────────────────────────────────┐ ║
+║  │ Clientes abertos: 0                                 │ ║
+║  └─────────────────────────────────────────────────────┘ ║
+║                                                           ║
+║                                                           ║
+║  ┌─────────────────────────────────────────────────────┐ ║
+║  │        + Adicionar Cliente                          │ ║
+║  └─────────────────────────────────────────────────────┘ ║
+║                                                           ║
+╚═══════════════════════════════════════════════════════════╝
+```
+
+**Componentes:**
+- **Título:** "Sistema de Chat - Múltiplos Clientes"
+- **Label de Status:** Mostra número de clientes conectados em tempo real
+- **Botão:** "+ Adicionar Cliente" - abre novo FormLogin
+
+---
+
+## 2. FormLogin - Autenticação
+
+```
+╔═══════════════════════════════════════════════════════════╗
+║                                                           ║
+║              Entrar no Chat                              ║
+║                                                           ║
+║                                                           ║
+║  Nome de Utilizador:                                     ║
+║  ┌─────────────────────────────────────────────────────┐ ║
+║  │                                                     │ ║
+║  └─────────────────────────────────────────────────────┘ ║
+║                                                           ║
+║  Endereço IP do Servidor:                               ║
+║  ┌─────────────────────────────────────────────────────┐ ║
+║  │                                                     │ ║
+║  └─────────────────────────────────────────────────────┘ ║
+║                                                           ║
+║                                                           ║
+║  ┌─────────────────────────────────────────────────────┐ ║
+║  │              Conectar                               │ ║
+║  └─────────────────────────────────────────────────────┘ ║
+║                                                           ║
+║                                                           ║
+╚═══════════════════════════════════════════════════════════╝
+```
+
+**Componentes:**
+- **Label + TextBox:** Nome de Utilizador (obrigatório)
+- **Label + TextBox:** Endereço IP do Servidor (obrigatório)
+- **Botão:** Conectar
+- **Validação:** Rejeita campos vazios e IP inválido
+
+---
+
+## 3. FormChat - Interface de Chat
+
+```
+╔═════════════════════════════════════════════════════════════╗
+║ Chat - Alice                                         [_][□][X]║
+╠═════════════════════════════════════════════════════════════╣
+║                                                             ║
+║  === Bem-vindo ao Chat, Alice! ===                        ║
+║                                                             ║
+║  Bob entrou no chat.                                       ║
+║                                                             ║
+║  Alice: Olá!                                               ║
+║                                                             ║
+║  Bob: Oi Alice! Como estás?                               ║
+║                                                             ║
+║  Alice: Tudo bem! E tu?                                   ║
+║                                                             ║
+║  Bob: Tudo certo!                                         ║
+║                                                             ║
+║                                                             ║
+║                                                             ║
+║                                                             ║
+║                                                             ║
+╠═════════════════════════════════════════════════════════════╣
+║  Nome de utilizador: Alice                                 ║
+║                                                             ║
+║  Mensagem:                                                  ║
+║  ┌───────────────────────────────────────────────────────┐ ║
+║  │                                                       │ ║
+║  └───────────────────────────────────────────────────────┘ ║
+║                                                             ║
+║  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐    ║
+║  │   Enviar     │  │ Limpar       │  │ Desligar     │    ║
+║  └──────────────┘  └──────────────┘  └──────────────┘    ║
+║                                                             ║
+╚═════════════════════════════════════════════════════════════╝
+```
+
+**Componentes:**
+
+**Área Superior:**
+- **RichTextBox (read-only):** Histórico de mensagens
+  - Formato: "NomeUtilizador: Mensagem"
+  - Notificações de entrada/saída
+  - Scroll automático
+
+**Área Inferior:**
+- **Label:** "Nome de utilizador: [Username]"
+- **TextBox:** Campo para nova mensagem
+- **Botões:**
+  - Enviar
+  - Limpar
+  - Desligar
+
+---
+
+## Resumo dos Wireframes
+
+| Formulário | Propósito | Componentes Principais |
+|---|---|---|
+| **FormLauncher** | Gerenciar múltiplos clientes | Label Status, Botão Adicionar |
+| **FormLogin** | Autenticação e conexão | TextBox Username, TextBox IP, Botão Conectar |
+| **FormChat** | Comunicação em tempo real | RichTextBox Histórico, TextBox Mensagem, 3 Botões |
