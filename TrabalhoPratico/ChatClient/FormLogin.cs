@@ -69,27 +69,18 @@ namespace ChatClient
                 if (protocol.GetCmdType() == ProtocolSICmdType.ACK)
                 {
                     // Servidor aceitou: passar a ligação já aberta ao FormChat
-                    FormChat chatForm = new FormChat(tcpClient, stream, protocol, username);
+                     FormChat chatForm = new FormChat(tcpClient, stream, protocol, username);
 
-<<<<<<< Updated upstream
-                    // ALTERAÇÃO (Fase I - Múltiplos Clientes):
-                    // Quando FormChat fecha, notifica ClientManager para decrementar contador.
-                    // Isto permite que FormLauncher fique sincronizado com número real de clientes.
-                    chatForm.FormClosed += (s, args) => ClientManager.UnregisterClient();
-                    
-                    // ALTERAÇÃO (Fase I - Múltiplos Clientes):
-                    // Registra este cliente como ativo no ClientManager.
-                    // ClientManager dispara evento que FormLauncher escuta e atualiza label.
-                    ClientManager.RegisterClient();
-                    
-=======
-                    // Quando o FormChat fechar, terminar a aplicação —
-                    // sem isto o FormLogin ficaria escondido em memória
-                    chatForm.FormClosed += (s, args) => Application.Exit();
-
->>>>>>> Stashed changes
-                    chatForm.Show();
-                    this.Hide();
+                     // Quando FormChat fecha, notifica ClientManager para decrementar contador.
+                     // Isto permite que FormLauncher fique sincronizado com número real de clientes.
+                     chatForm.FormClosed += (s, args) => ClientManager.UnregisterClient();
+                     
+                     // Registra este cliente como ativo no ClientManager.
+                     // ClientManager dispara evento que FormLauncher escuta e atualiza label.
+                     ClientManager.RegisterClient();
+                     
+                     chatForm.Show();
+                     this.Hide();
                 }
                 else
                 {
