@@ -25,3 +25,12 @@ C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\Trab
 C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\obj\Debug\ChatServer.csproj.Up2Date
 C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\obj\Debug\ChatServer.exe
 C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\obj\Debug\ChatServer.pdb
+C:\Users\Diogo\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\bin\Debug\ChatServer.exe.config
+C:\Users\Diogo\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\bin\Debug\ChatServer.exe
+C:\Users\Diogo\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\bin\Debug\ChatServer.pdb
+C:\Users\Diogo\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\bin\Debug\ProtocolSI.dll
+C:\Users\Diogo\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\obj\Debug\ChatServer.csproj.AssemblyReference.cache
+C:\Users\Diogo\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\obj\Debug\ChatServer.csproj.CoreCompileInputs.cache
+C:\Users\Diogo\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\obj\Debug\ChatServer.csproj.Up2Date
+C:\Users\Diogo\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\obj\Debug\ChatServer.exe
+C:\Users\Diogo\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\obj\Debug\ChatServer.pdb
