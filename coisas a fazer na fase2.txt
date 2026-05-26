@@ -1,0 +1,22 @@
+
+hash de autenticação - sha2 512
+Ãlgrotimo AES
+
+critptografia assimétrica
+
+
+
+
+Chat a funcionar entre os dois clientes e servidor em que o servidor suporta os dois
+clientes, permitindo o envio de mensagens cifradas e devidamente guardados. (critptografia assimétrica e simétrica)
+
+• Criação de um log (.txt) do sistema para guardar todos os dados processados pelo servidor.
+
+• User Interface final. (views)
+
+• Entrega de um vídeo demonstrativo da aplicação e documento/relatório, com todas as
+funções desenvolvidas. Se aplicável, podem utilizar o site
+https://www.videosmaller.com/pt/ para a compressão de vídeo.
+
+
+mensagem privada
