@@ -45,29 +45,36 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
-    <Compile Include="ClientManager.cs" />
-    <Compile Include="FormLauncher.cs">
+    <Compile Include="Model\Mensagem.cs" />
+    <Compile Include="Model\DadosConexao.cs" />
+    <Compile Include="Controller\SessaoAtual.cs" />
+    <Compile Include="Controller\GestorCliente.cs" />
+    <Compile Include="Controller\GestorConexao.cs" />
+    <Compile Include="View\FormLauncher.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.cs">
+    <Compile Include="View\FormLauncher.Designer.cs">
+      <DependentUpon>FormLauncher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.cs">
+    <Compile Include="View\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormChat.cs">
+    <Compile Include="View\FormChat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormChat.Designer.cs">
+    <Compile Include="View\FormChat.Designer.cs">
       <DependentUpon>FormChat.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormLogin.resx">
+    <EmbeddedResource Include="View\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormChat.resx">
+    <EmbeddedResource Include="View\FormChat.resx">
       <DependentUpon>FormChat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

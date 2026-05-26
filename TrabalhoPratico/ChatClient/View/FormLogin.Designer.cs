@@ -19,6 +19,8 @@ namespace ChatClient
             this.labelIP = new System.Windows.Forms.Label();
             this.textBoxIP = new System.Windows.Forms.TextBox();
             this.buttonConnect = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -45,7 +47,7 @@ namespace ChatClient
             // textBoxUsername
             // 
             this.textBoxUsername.Location = new System.Drawing.Point(40, 111);
-            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxUsername.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(319, 22);
             this.textBoxUsername.TabIndex = 2;
@@ -60,21 +62,23 @@ namespace ChatClient
             this.labelIP.Size = new System.Drawing.Size(95, 16);
             this.labelIP.TabIndex = 3;
             this.labelIP.Text = "IP do Servidor:";
+            this.labelIP.Visible = false;
             // 
             // textBoxIP
             // 
             this.textBoxIP.Location = new System.Drawing.Point(40, 178);
-            this.textBoxIP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxIP.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxIP.Name = "textBoxIP";
             this.textBoxIP.Size = new System.Drawing.Size(319, 22);
             this.textBoxIP.TabIndex = 4;
             this.textBoxIP.Text = "127.0.0.1";
+            this.textBoxIP.Visible = false;
             this.textBoxIP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxIP_KeyPress);
             // 
             // buttonConnect
             // 
             this.buttonConnect.Location = new System.Drawing.Point(120, 228);
-            this.buttonConnect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonConnect.Margin = new System.Windows.Forms.Padding(4);
             this.buttonConnect.Name = "buttonConnect";
             this.buttonConnect.Size = new System.Drawing.Size(160, 43);
             this.buttonConnect.TabIndex = 5;
@@ -82,11 +86,33 @@ namespace ChatClient
             this.buttonConnect.UseVisualStyleBackColor = true;
             this.buttonConnect.Click += new System.EventHandler(this.buttonConnect_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(40, 154);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 16);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Password:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.CausesValidation = false;
+            this.textBox1.Location = new System.Drawing.Point(40, 178);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PasswordChar = '*';
+            this.textBox1.Size = new System.Drawing.Size(319, 22);
+            this.textBox1.TabIndex = 7;
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 302);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonConnect);
             this.Controls.Add(this.textBoxIP);
             this.Controls.Add(this.labelIP);
@@ -94,7 +120,7 @@ namespace ChatClient
             this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.labelTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -102,7 +128,6 @@ namespace ChatClient
             this.Load += new System.EventHandler(this.FormLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         private System.Windows.Forms.Label labelTitle;
@@ -111,5 +136,7 @@ namespace ChatClient
         private System.Windows.Forms.Label labelIP;
         private System.Windows.Forms.TextBox textBoxIP;
         private System.Windows.Forms.Button buttonConnect;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

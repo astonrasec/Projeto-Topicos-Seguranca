@@ -106,7 +106,6 @@ namespace ChatClient
             this.Load += new System.EventHandler(this.FormChat_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         private System.Windows.Forms.Label labelStatus;
