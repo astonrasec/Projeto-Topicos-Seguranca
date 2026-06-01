@@ -14,12 +14,14 @@ namespace ChatServer
             TcpListener listener = new TcpListener(endpoint);
             listener.Start();
 
+            Logger logger = new Logger();
+            logger.Info("Servidor de Chat iniciado na porta " + PORT);
+
             Console.WriteLine("=== Servidor de Chat - Fase I ===");
             Console.WriteLine("Aberta a porta {0}...", PORT);
             Console.WriteLine("Aguardar ligações...");
             Console.WriteLine();
-
-            GestorClientes gestor = new GestorClientes();
+            GestorClientes gestor = new GestorClientes(logger);
 
             while (true)
             {

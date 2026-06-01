@@ -34,3 +34,15 @@ C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\Trab
 C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.csproj.Up2Date
 C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.exe
 C:\Users\Diogo\OneDrive - IPLeiria\Documentos\Git\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.pdb
+C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\bin\Debug\ChatClient.exe.config
+C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\bin\Debug\ChatClient.exe
+C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\bin\Debug\ChatClient.pdb
+C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\bin\Debug\ProtocolSI.dll
+C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.csproj.AssemblyReference.cache
+C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.FormLogin.resources
+C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.FormChat.resources
+C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.csproj.GenerateResource.cache
+C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.csproj.CoreCompileInputs.cache
+C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.csproj.Up2Date
+C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.exe
+C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.pdb

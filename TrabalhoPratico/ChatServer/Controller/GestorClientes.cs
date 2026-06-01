@@ -11,16 +11,23 @@ namespace ChatServer
         private readonly List<ClientHandler> clients = new List<ClientHandler>();
         private readonly object clientsLock = new object();
         private int clientCounter = 0;
+        private readonly Logger logger;
+
+        public GestorClientes(Logger logger)
+        {
+            this.logger = logger;
+        }
 
         public ClientHandler AdicionarCliente(TcpClient tcpClient)
         {
             clientCounter++;
             int id = clientCounter;
 
-            Console.WriteLine("[{0}] Novo cliente conectado (ID: {1})",
-                DateTime.Now.ToLongTimeString(), id);
+            string msg = $"[{DateTime.Now.ToLongTimeString()}] Novo cliente conectado (ID: {id})";
+            Console.WriteLine(msg);
+            logger.Info($"Cliente ID:{id} conectado (IP: {tcpClient.Client.RemoteEndPoint})");
 
-            ClientHandler handler = new ClientHandler(tcpClient, id, clients, clientsLock, this);
+            ClientHandler handler = new ClientHandler(tcpClient, id, clients, clientsLock, this, logger);
 
             lock (clientsLock)
             {
@@ -65,16 +72,18 @@ namespace ChatServer
         private readonly List<ClientHandler> allClients;
         private readonly object clientsLock;
         private readonly GestorClientes gestor;
+        private readonly Logger logger;
 
         private readonly object sendLock = new object();
 
-        public ClientHandler(TcpClient client, int id, List<ClientHandler> clients, object lockObj, GestorClientes gestor)
+        public ClientHandler(TcpClient client, int id, List<ClientHandler> clients, object lockObj, GestorClientes gestor, Logger logger)
         {
             this.tcpClient = client;
             this.clientID = id;
             this.allClients = clients;
             this.clientsLock = lockObj;
             this.gestor = gestor;
+            this.logger = logger;
             this.networkStream = client.GetStream();
         }
 
@@ -101,10 +110,13 @@ namespace ChatServer
                     {
                         case ProtocolSICmdType.USER_OPTION_1:
                             username = protocolSI.GetStringFromData();
+                            logger.Info($"Cliente '{username}' (ID:{clientID}) autenticado");
+
                             Console.WriteLine("[{0}] Cliente {1} identificado como '{2}'",
                                 DateTime.Now.ToLongTimeString(), clientID, username);
 
                             gestor.BroadcastMessage(this, username + " entrou no chat.");
+                            logger.Info($"'{username}' entrou no chat");
 
                             byte[] ack = protocolSI.Make(ProtocolSICmdType.ACK);
                             lock (sendLock)
@@ -120,6 +132,8 @@ namespace ChatServer
                             Console.WriteLine("[{0}] {1}: {2}",
                                 DateTime.Now.ToLongTimeString(), displayName, msg);
 
+                            logger.Info($"Mensagem de '{displayName}': {msg}");
+
                             gestor.BroadcastMessage(this, displayName + ": " + msg);
                             break;
 
@@ -127,8 +141,13 @@ namespace ChatServer
                             Console.WriteLine("[{0}] Cliente '{1}' desconectado.",
                                 DateTime.Now.ToLongTimeString(), username ?? "ID " + clientID);
 
+                            logger.Info($"Cliente '{username ?? "ID " + clientID}' desconectou-se");
+
                             if (username != null)
+                            {
                                 gestor.BroadcastMessage(this, username + " saiu do chat.");
+                                logger.Info($"'{username}' saiu do chat");
+                            }
 
                             return;
                     }
@@ -136,13 +155,16 @@ namespace ChatServer
             }
             catch (Exception ex)
             {
+                string who = username ?? ("ID " + clientID);
                 Console.WriteLine("[Erro] Cliente {0}: {1}", clientID, ex.Message);
+                logger.Error($"Cliente {who}: {ex.Message}");
             }
             finally
             {
                 gestor.RemoverCliente(this);
                 networkStream.Close();
                 tcpClient.Close();
+                logger.Info($"Cliente ID:{clientID} recursos libertados");
             }
         }
 
