@@ -2,6 +2,7 @@ using EI.SI;
 using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
+using System.Security.Cryptography;
 using System.Threading;
 
 namespace ChatServer
@@ -13,9 +14,18 @@ namespace ChatServer
         private int clientCounter = 0;
         private readonly Logger logger;
 
+        // RSA do servidor (Ficha 5 - Criptografia Assimétrica)
+        private RSACryptoServiceProvider rsaServidor;
+        public string ChavePublicaServidor { get; private set; }
+
         public GestorClientes(Logger logger)
         {
             this.logger = logger;
+
+            // Gera o par de chaves RSA do servidor (padrão Ficha 5)
+            rsaServidor = new RSACryptoServiceProvider();
+            ChavePublicaServidor = rsaServidor.ToXmlString(false); // Apenas chave pública
+            logger.Info("Chave RSA do servidor gerada com sucesso");
         }
 
         public ClientHandler AdicionarCliente(TcpClient tcpClient)
@@ -76,6 +86,9 @@ namespace ChatServer
 
         private readonly object sendLock = new object();
 
+        // Chave pública do cliente (recebida durante o handshake RSA)
+        public string ChavePublicaCliente { get; private set; }
+
         public ClientHandler(TcpClient client, int id, List<ClientHandler> clients, object lockObj, GestorClientes gestor, Logger logger)
         {
             this.tcpClient = client;
@@ -110,14 +123,27 @@ namespace ChatServer
                     {
                         case ProtocolSICmdType.USER_OPTION_1:
                             username = protocolSI.GetStringFromData();
-                            logger.Info($"Cliente '{username}' (ID:{clientID}) autenticado");
 
                             Console.WriteLine("[{0}] Cliente {1} identificado como '{2}'",
                                 DateTime.Now.ToLongTimeString(), clientID, username);
 
+                            // PASSO 1: Enviar chave pública do servidor para o cliente
+                            byte[] pubKeyPacket = protocolSI.Make(ProtocolSICmdType.DATA, gestor.ChavePublicaServidor);
+                            lock (sendLock)
+                            {
+                                networkStream.Write(pubKeyPacket, 0, pubKeyPacket.Length);
+                            }
+
+                            // PASSO 2: Receber chave pública do cliente
+                            networkStream.Read(protocolSI.Buffer, 0, protocolSI.Buffer.Length);
+                            ChavePublicaCliente = protocolSI.GetStringFromData();
+
+                            logger.Info($"Troca de chaves RSA concluída com '{username}'");
+
                             gestor.BroadcastMessage(this, username + " entrou no chat.");
                             logger.Info($"'{username}' entrou no chat");
 
+                            // PASSO 3: Confirmar autenticação
                             byte[] ack = protocolSI.Make(ProtocolSICmdType.ACK);
                             lock (sendLock)
                             {
