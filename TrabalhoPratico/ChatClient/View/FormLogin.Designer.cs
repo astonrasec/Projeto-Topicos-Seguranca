@@ -19,8 +19,9 @@ namespace ChatClient
             this.labelIP = new System.Windows.Forms.Label();
             this.textBoxIP = new System.Windows.Forms.TextBox();
             this.buttonConnect = new System.Windows.Forms.Button();
+            this.buttonCriarConta = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -77,14 +78,25 @@ namespace ChatClient
             // 
             // buttonConnect
             // 
-            this.buttonConnect.Location = new System.Drawing.Point(120, 228);
+            this.buttonConnect.Location = new System.Drawing.Point(40, 228);
             this.buttonConnect.Margin = new System.Windows.Forms.Padding(4);
             this.buttonConnect.Name = "buttonConnect";
-            this.buttonConnect.Size = new System.Drawing.Size(160, 43);
+            this.buttonConnect.Size = new System.Drawing.Size(150, 43);
             this.buttonConnect.TabIndex = 5;
-            this.buttonConnect.Text = "Conectar";
+            this.buttonConnect.Text = "Entrar";
             this.buttonConnect.UseVisualStyleBackColor = true;
             this.buttonConnect.Click += new System.EventHandler(this.buttonConnect_Click);
+            //
+            // buttonCriarConta
+            //
+            this.buttonCriarConta.Location = new System.Drawing.Point(210, 228);
+            this.buttonCriarConta.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCriarConta.Name = "buttonCriarConta";
+            this.buttonCriarConta.Size = new System.Drawing.Size(150, 43);
+            this.buttonCriarConta.TabIndex = 8;
+            this.buttonCriarConta.Text = "Criar Conta";
+            this.buttonCriarConta.UseVisualStyleBackColor = true;
+            this.buttonCriarConta.Click += new System.EventHandler(this.buttonCriarConta_Click);
             // 
             // label1
             // 
@@ -96,24 +108,25 @@ namespace ChatClient
             this.label1.TabIndex = 6;
             this.label1.Text = "Password:";
             // 
-            // textBox1
+            // textBoxPassword
             // 
-            this.textBox1.CausesValidation = false;
-            this.textBox1.Location = new System.Drawing.Point(40, 178);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(319, 22);
-            this.textBox1.TabIndex = 7;
+            this.textBoxPassword.CausesValidation = false;
+            this.textBoxPassword.Location = new System.Drawing.Point(40, 178);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
+            this.textBoxPassword.Size = new System.Drawing.Size(319, 22);
+            this.textBoxPassword.TabIndex = 7;
             // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 302);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonConnect);
+            this.Controls.Add(this.buttonCriarConta);
             this.Controls.Add(this.textBoxIP);
             this.Controls.Add(this.labelIP);
             this.Controls.Add(this.textBoxUsername);
@@ -128,6 +141,7 @@ namespace ChatClient
             this.Load += new System.EventHandler(this.FormLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.Label labelTitle;
@@ -136,7 +150,8 @@ namespace ChatClient
         private System.Windows.Forms.Label labelIP;
         private System.Windows.Forms.TextBox textBoxIP;
         private System.Windows.Forms.Button buttonConnect;
+        private System.Windows.Forms.Button buttonCriarConta;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxPassword;
     }
 }

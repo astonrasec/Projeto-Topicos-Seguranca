@@ -1,11 +1,11 @@
 using EI.SI;
 using System;
-using System.Net;
 using System.Net.Sockets;
 using System.Windows.Forms;
 
 namespace ChatClient
 {
+    
     public partial class FormLogin : Form
     {
         public FormLogin()
@@ -13,10 +13,12 @@ namespace ChatClient
             InitializeComponent();
         }
 
+       
         private void buttonConnect_Click(object sender, EventArgs e)
         {
             string username = textBoxUsername.Text.Trim();
-            string ip       = textBoxIP.Text.Trim();
+            string password = textBoxPassword.Text;
+            string ip       = "127.0.0.1"; // IP fixo — campo oculto no designer
 
             if (string.IsNullOrEmpty(username))
             {
@@ -26,11 +28,11 @@ namespace ChatClient
                 return;
             }
 
-            if (string.IsNullOrEmpty(ip))
+            if (string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Por favor introduza o endereço IP do servidor.",
+                MessageBox.Show("Por favor introduza a password.",
                     "Campo obrigatório", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBoxIP.Focus();
+                textBoxPassword.Focus();
                 return;
             }
 
@@ -38,27 +40,30 @@ namespace ChatClient
 
             try
             {
-                if (GestorConexao.TentarConectar(username, ip, out TcpClient tcpClient, out NetworkStream stream, out ProtocolSI protocol))
+                bool ligado = GestorConexao.TentarConectar(
+                    username, password, ip,
+                    out TcpClient tcpClient,
+                    out NetworkStream stream,
+                    out ProtocolSI protocol);
+
+                if (ligado)
                 {
                     FormChat chatForm = new FormChat(tcpClient, stream, protocol, username);
-
                     chatForm.FormClosed += (s, args) => GestorCliente.UnregisterClient();
-
                     GestorCliente.RegisterClient();
-
                     chatForm.Show();
                     this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show("O servidor não aceitou a ligação.",
-                        "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Autenticação falhada. Verifique as suas credenciais.",
+                        "Erro de Autenticação", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     buttonConnect.Enabled = true;
                 }
             }
             catch (FormatException)
             {
-                MessageBox.Show("Endereço IP inválido. Exemplo: 127.0.0.1",
+                MessageBox.Show("Endereço IP inválido.",
                     "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 buttonConnect.Enabled = true;
             }
@@ -75,7 +80,7 @@ namespace ChatClient
             if (e.KeyChar == (char)Keys.Return)
             {
                 e.Handled = true;
-                textBoxIP.Focus();
+                textBoxPassword.Focus(); // mover foco para password
             }
         }
 
@@ -88,9 +93,14 @@ namespace ChatClient
             }
         }
 
-        private void FormLogin_Load(object sender, EventArgs e)
+        private void buttonCriarConta_Click(object sender, EventArgs e)
         {
-
+            FormRegisto formRegisto = new FormRegisto();
+            formRegisto.Show();
+            this.Hide();
+            formRegisto.FormClosed += (s, args) => this.Show();
         }
+
+        private void FormLogin_Load(object sender, EventArgs e) { }
     }
 }

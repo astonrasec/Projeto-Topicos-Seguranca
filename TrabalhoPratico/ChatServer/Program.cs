@@ -17,7 +17,7 @@ namespace ChatServer
             Logger logger = new Logger();
             logger.Info("Servidor de Chat iniciado na porta " + PORT);
 
-            Console.WriteLine("=== Servidor de Chat - Fase I ===");
+            Console.WriteLine("=== Servidor de Chat - Fase II ===");
             Console.WriteLine("Aberta a porta {0}...", PORT);
             Console.WriteLine("Aguardar ligações...");
             Console.WriteLine();

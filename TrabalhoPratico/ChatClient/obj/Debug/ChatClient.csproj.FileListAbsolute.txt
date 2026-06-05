@@ -46,3 +46,4 @@ C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\ob
 C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.csproj.Up2Date
 C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.exe
 C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.pdb
+C:\Users\Administrator\Documents\IPL\Repositorio_GIT\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatClient\obj\Debug\ChatClient.FormRegisto.resources

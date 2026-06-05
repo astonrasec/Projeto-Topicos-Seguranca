@@ -1,85 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Administrator\\Documents\\IPL\\Repositorio_GIT\\Projeto-Topicos-Seguranca\\TrabalhoPratico\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{2A3B4C5D-6E7F-8A9B-0C1D-2E3F4A5B6C7D}|ChatClient\\ChatClient.csproj|c:\\users\\administrator\\documents\\ipl\\repositorio_git\\projeto-topicos-seguranca\\trabalhopratico\\chatclient\\view\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2A3B4C5D-6E7F-8A9B-0C1D-2E3F4A5B6C7D}|ChatClient\\ChatClient.csproj|solutionrelative:chatclient\\view\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2A3B4C5D-6E7F-8A9B-0C1D-2E3F4A5B6C7D}|ChatClient\\ChatClient.csproj|c:\\users\\administrator\\documents\\ipl\\repositorio_git\\projeto-topicos-seguranca\\trabalhopratico\\chatclient\\view\\formlauncher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2A3B4C5D-6E7F-8A9B-0C1D-2E3F4A5B6C7D}|ChatClient\\ChatClient.csproj|solutionrelative:chatclient\\view\\formlauncher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2A3B4C5D-6E7F-8A9B-0C1D-2E3F4A5B6C7D}|ChatClient\\ChatClient.csproj|c:\\users\\administrator\\documents\\ipl\\repositorio_git\\projeto-topicos-seguranca\\trabalhopratico\\chatclient\\view\\formchat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2A3B4C5D-6E7F-8A9B-0C1D-2E3F4A5B6C7D}|ChatClient\\ChatClient.csproj|solutionrelative:chatclient\\view\\formchat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B4C5D6E-7F8A-9B0C-1D2E-3F4A5B6C7D8E}|ChatServer\\ChatServer.csproj|c:\\users\\administrator\\documents\\ipl\\repositorio_git\\projeto-topicos-seguranca\\trabalhopratico\\chatserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B4C5D6E-7F8A-9B0C-1D2E-3F4A5B6C7D8E}|ChatServer\\ChatServer.csproj|solutionrelative:chatserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FormLogin.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\IPL\\Repositorio_GIT\\Projeto-Topicos-Seguranca\\TrabalhoPratico\\ChatClient\\View\\FormLogin.cs",
-              "RelativeDocumentMoniker": "ChatClient\\View\\FormLogin.cs",
-              "ToolTip": "C:\\Users\\Administrator\\Documents\\IPL\\Repositorio_GIT\\Projeto-Topicos-Seguranca\\TrabalhoPratico\\ChatClient\\View\\FormLogin.cs [Design]",
-              "RelativeToolTip": "ChatClient\\View\\FormLogin.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T18:20:23.062Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FormLauncher.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\IPL\\Repositorio_GIT\\Projeto-Topicos-Seguranca\\TrabalhoPratico\\ChatClient\\View\\FormLauncher.cs",
-              "RelativeDocumentMoniker": "ChatClient\\View\\FormLauncher.cs",
-              "ToolTip": "C:\\Users\\Administrator\\Documents\\IPL\\Repositorio_GIT\\Projeto-Topicos-Seguranca\\TrabalhoPratico\\ChatClient\\View\\FormLauncher.cs [Design]",
-              "RelativeToolTip": "ChatClient\\View\\FormLauncher.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T18:20:20.756Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FormChat.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\IPL\\Repositorio_GIT\\Projeto-Topicos-Seguranca\\TrabalhoPratico\\ChatClient\\View\\FormChat.cs",
-              "RelativeDocumentMoniker": "ChatClient\\View\\FormChat.cs",
-              "ToolTip": "C:\\Users\\Administrator\\Documents\\IPL\\Repositorio_GIT\\Projeto-Topicos-Seguranca\\TrabalhoPratico\\ChatClient\\View\\FormChat.cs [Design]",
-              "RelativeToolTip": "ChatClient\\View\\FormChat.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T18:20:17.896Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\IPL\\Repositorio_GIT\\Projeto-Topicos-Seguranca\\TrabalhoPratico\\ChatServer\\Program.cs",
-              "RelativeDocumentMoniker": "ChatServer\\Program.cs",
-              "ToolTip": "C:\\Users\\Administrator\\Documents\\IPL\\Repositorio_GIT\\Projeto-Topicos-Seguranca\\TrabalhoPratico\\ChatServer\\Program.cs",
-              "RelativeToolTip": "ChatServer\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T18:20:01.823Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

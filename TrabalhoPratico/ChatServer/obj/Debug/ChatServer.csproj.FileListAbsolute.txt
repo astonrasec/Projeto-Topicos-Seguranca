@@ -43,3 +43,7 @@ C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\ob
 C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\obj\Debug\ChatServer.csproj.Up2Date
 C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\obj\Debug\ChatServer.exe
 C:\Users\Kelly\Documents\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\obj\Debug\ChatServer.pdb
+C:\Users\Administrator\Documents\IPL\Repositorio_GIT\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Documents\IPL\Repositorio_GIT\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Documents\IPL\Repositorio_GIT\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Documents\IPL\Repositorio_GIT\Projeto-Topicos-Seguranca\TrabalhoPratico\ChatServer\bin\Debug\EntityFramework.SqlServer.xml
