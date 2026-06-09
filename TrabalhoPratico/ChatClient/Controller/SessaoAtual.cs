@@ -1,9 +1,9 @@
 namespace ChatClient
 {
-    /// <summary>
+    
     /// Armazena os dados da sessão atual do cliente:
     /// credenciais de login, chaves RSA e chave AES para comunicação cifrada.
-    /// </summary>
+   
     public static class SessaoAtual
     {
         public static string Username { get; set; }

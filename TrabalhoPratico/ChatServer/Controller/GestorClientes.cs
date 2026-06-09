@@ -7,10 +7,10 @@ using System.Threading;
 
 namespace ChatServer
 {
-    /// <summary>
+    
     /// Gere todos os clientes ligados ao servidor.
     /// Mantém a lista de ClientHandlers e a chave RSA do servidor.
-    /// </summary>
+    
     public class GestorClientes
     {
         private readonly List<ClientHandler> clients    = new List<ClientHandler>();
@@ -33,9 +33,7 @@ namespace ChatServer
             logger.Info("Chave RSA do servidor gerada.");
         }
 
-        /// <summary>
-        /// Cria um novo ClientHandler para o cliente TCP recebido e inicia a sua thread.
-        /// </summary>
+       
         public ClientHandler AdicionarCliente(TcpClient tcpClient)
         {
             clientCounter++;
@@ -52,18 +50,16 @@ namespace ChatServer
             return handler;
         }
 
-        /// <summary>
-        /// Remove um cliente da lista de clientes ativos.
-        /// </summary>
+        
         public void RemoverCliente(ClientHandler handler)
         {
             lock (clientsLock) { clients.Remove(handler); }
         }
 
-        /// <summary>
+        
         /// Envia uma mensagem em texto simples para todos os clientes exceto o remetente.
         /// Cada ClientHandler cifra a mensagem com a sua própria chave AES antes de enviar.
-        /// </summary>
+        
         public void BroadcastMessage(ClientHandler remetente, string mensagemPlana)
         {
             List<ClientHandler> snapshot;
@@ -77,10 +73,10 @@ namespace ChatServer
         }
     }
 
-    /// <summary>
+    
     /// Representa a ligação de um cliente individual.
     /// Trata o handshake de segurança, autenticação e troca de mensagens cifradas.
-    /// </summary>
+    
     public class ClientHandler
     {
         private readonly TcpClient tcpClient;
@@ -115,9 +111,9 @@ namespace ChatServer
             this.networkStream      = client.GetStream();
         }
 
-        /// <summary>
+        
         /// Inicia a thread de tratamento deste cliente em background.
-        /// </summary>
+    
         public void Start()
         {
             Thread thread = new Thread(Handle);
@@ -125,10 +121,10 @@ namespace ChatServer
             thread.Start();
         }
 
-        /// <summary>
+        
         /// Loop principal de receção de mensagens do cliente.
         /// Encaminha cada tipo de pacote para o método adequado.
-        /// </summary>
+        
         private void Handle()
         {
             ProtocolSI protocolSI = new ProtocolSI();
@@ -171,17 +167,14 @@ namespace ChatServer
             }
         }
 
-        /// <summary>
-        /// Realiza o handshake completo de segurança com o cliente:
-        /// 1. Recebe username (USER_OPTION_1)
+        
         /// 2. Envia chave pública RSA do servidor (DATA)
         /// 3. Recebe chave pública RSA do cliente (DATA)
         /// 4. Gera chave AES, cifra com RSA do cliente, envia (USER_OPTION_2)
         /// 5. Recebe credenciais cifradas com AES (USER_OPTION_3)
         /// 6. Valida autenticação com SHA-512 + salt
         /// 7. Envia ACK (sucesso) ou NACK (falha)
-        /// </summary>
-        /// <returns>True se autenticação bem sucedida; False caso contrário.</returns>
+       
         private bool HandleHandshake(ProtocolSI protocolSI)
         {
             // PASSO 1: Receber username
@@ -298,10 +291,10 @@ namespace ChatServer
             }
         }
 
-        /// <summary>
+        
         /// Cifra uma mensagem em texto simples com a chave AES desta sessão
         /// e envia-a para o cliente via ProtocolSI.
-        /// </summary>
+        
         public void EnviarMensagemCifrada(string mensagemPlana)
         {
             if (chaveAES == null) return;

@@ -4,11 +4,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChatServer
 {
-    /// <summary>
+    
     /// Entidade que representa um utilizador registado na base de dados.
     /// Tabela: Utilizadores
     /// Passwords armazenadas com hash SHA-512 + salt único por utilizador.
-    /// </summary>
+    
     [Table("Utilizadores")]
     public class UtilizadorModel
     {
