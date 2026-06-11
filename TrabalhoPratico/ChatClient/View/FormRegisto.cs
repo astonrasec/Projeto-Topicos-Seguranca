@@ -59,18 +59,21 @@ namespace ChatClient
 
             try
             {
+                // TentarRegistar devolve a "sessao" própria
+                // desta ligação (chave AES/IV, etc.), em vez de usar uma SessaoAtual estática
                 bool registado = GestorConexao.TentarRegistar(
                     username, password, ip,
                     out TcpClient tcpClient,
                     out NetworkStream stream,
-                    out ProtocolSI protocol);
+                    out ProtocolSI protocol,
+                    out SessaoAtual sessao);
 
                 if (registado)
                 {
                     MessageBox.Show("Conta criada com sucesso! A entrar no chat...",
                         "Registo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    FormChat chatForm = new FormChat(tcpClient, stream, protocol, username);
+                    FormChat chatForm = new FormChat(tcpClient, stream, protocol, username, sessao);
                     chatForm.FormClosed += (s, args) => GestorCliente.UnregisterClient();
                     GestorCliente.RegisterClient();
                     chatForm.Show();

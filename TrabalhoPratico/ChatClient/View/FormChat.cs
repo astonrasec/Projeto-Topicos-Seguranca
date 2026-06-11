@@ -6,23 +6,25 @@ using System.Windows.Forms;
 
 namespace ChatClient
 {
-    /// <summary>
-    /// Formulário principal do chat.
+   
     /// Todas as mensagens enviadas são cifradas com AES antes de sair para a rede.
     /// Todas as mensagens recebidas são decifradas com AES antes de mostrar no ecrã.
-    /// </summary>
+    
     public partial class FormChat : Form
     {
         private readonly TcpClient tcpClient;
         private readonly NetworkStream networkStream;
         private readonly ProtocolSI sendProtocol;
         private readonly string username;
+        // sessão (chave AES/IV, etc.) não vem da SessaoAtual estática
+        // partilhada — vem desta instância, própria desta ligação.
+        private readonly SessaoAtual sessao;
         private Thread receiveThread;
         private volatile bool running     = true;
         private bool isDisconnecting      = false;
         private readonly object sendLock  = new object();
 
-        public FormChat(TcpClient client, NetworkStream stream, ProtocolSI protocol, string username)
+        public FormChat(TcpClient client, NetworkStream stream, ProtocolSI protocol, string username, SessaoAtual sessao)
         {
             InitializeComponent();
 
@@ -30,6 +32,7 @@ namespace ChatClient
             this.networkStream = stream;
             this.sendProtocol  = protocol;
             this.username      = username;
+            this.sessao        = sessao;
 
             this.Text        = "Chat - " + username;
             labelStatus.Text = "Nome de utilizador: " + username;
@@ -59,8 +62,9 @@ namespace ChatClient
                     if (recvProtocol.GetCmdType() == ProtocolSICmdType.DATA)
                     {
                         string base64   = recvProtocol.GetStringFromData();
+                        //  usar a chave AES/IV desta sessão (instância), não a estática
                         string msgPlana = GestorCriptografia.DecifrarMensagemAES(
-                            base64, SessaoAtual.ChaveAES, SessaoAtual.IVAES);
+                            base64, sessao.ChaveAES, sessao.IVAES);
                         AppendMessage(msgPlana);
                     }
                 }
@@ -82,10 +86,10 @@ namespace ChatClient
             richTextBoxChat.ScrollToCaret();
         }
 
-        /// <summary>
+        
         /// Cifra a mensagem com AES-256 e envia para o servidor via ProtocolSI.
         /// O texto cifrado é transportado em Base64 dentro do payload DATA.
-        /// </summary>
+       
         private void SendMessage()
         {
             string msg = textBoxMessage.Text.Trim();
@@ -98,8 +102,9 @@ namespace ChatClient
 
             try
             {
+                // CORREÇÃO: usar a chave AES/IV desta sessão (instância), não a estática
                 string base64 = GestorCriptografia.CifrarMensagemAES(
-                    msg, SessaoAtual.ChaveAES, SessaoAtual.IVAES);
+                    msg, sessao.ChaveAES, sessao.IVAES);
 
                 lock (sendLock)
                 {

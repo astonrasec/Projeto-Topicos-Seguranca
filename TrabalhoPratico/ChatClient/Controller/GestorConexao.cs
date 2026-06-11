@@ -13,27 +13,30 @@ namespace ChatClient
 
        
         public static bool TentarConectar(string username, string password, string ip,
-            out TcpClient tcpClient, out NetworkStream stream, out ProtocolSI protocol)
+            out TcpClient tcpClient, out NetworkStream stream, out ProtocolSI protocol, out SessaoAtual sessao)
         {
             return ExecutarHandshake("LOGIN", username, password, ip,
-                out tcpClient, out stream, out protocol);
+                out tcpClient, out stream, out protocol, out sessao);
         }
 
-       
+
         public static bool TentarRegistar(string username, string password, string ip,
-            out TcpClient tcpClient, out NetworkStream stream, out ProtocolSI protocol)
+            out TcpClient tcpClient, out NetworkStream stream, out ProtocolSI protocol, out SessaoAtual sessao)
         {
             return ExecutarHandshake("REGISTO", username, password, ip,
-                out tcpClient, out stream, out protocol);
+                out tcpClient, out stream, out protocol, out sessao);
         }
 
-       
+
+        // cada chamada cria e devolve a sua própria SessaoAtual (out sessao),
+        // em vez de escrever numa SessaoAtual estática partilhada por todo o processo.
         private static bool ExecutarHandshake(string operacao, string username, string password, string ip,
-            out TcpClient tcpClient, out NetworkStream stream, out ProtocolSI protocol)
+            out TcpClient tcpClient, out NetworkStream stream, out ProtocolSI protocol, out SessaoAtual sessao)
         {
             tcpClient = null;
             stream    = null;
             protocol  = null;
+            sessao    = new SessaoAtual();
 
             try
             {
@@ -51,7 +54,8 @@ namespace ChatClient
                 // PASSO 2: Receber chave pública RSA do servidor
                 stream.Read(protocol.Buffer, 0, protocol.Buffer.Length);
                 string chavePublicaServidor = protocol.GetStringFromData();
-                SessaoAtual.ChavePublicaServidor = chavePublicaServidor;
+                // CORREÇÃO: gravar na sessão local desta ligação, não num estático global
+                sessao.ChavePublicaServidor = chavePublicaServidor;
 
                 // PASSO 3: Gerar par de chaves RSA do cliente e enviar a chave pública
                 string chavePrivada;
@@ -61,7 +65,8 @@ namespace ChatClient
                     chavePrivada = rsa.ToXmlString(true);
                     chavePublica = rsa.ToXmlString(false);
                 }
-                SessaoAtual.ChavePrivada = chavePrivada;
+                //  gravar na sessão local desta ligação, não num estático global
+                sessao.ChavePrivada = chavePrivada;
 
                 byte[] packetPubKey = protocol.Make(ProtocolSICmdType.DATA, chavePublica);
                 stream.Write(packetPubKey, 0, packetPubKey.Length);
@@ -77,8 +82,10 @@ namespace ChatClient
                 Buffer.BlockCopy(aesData, 0,  chaveAES, 0, 32);
                 Buffer.BlockCopy(aesData, 32, ivAES,    0, 16);
 
-                SessaoAtual.ChaveAES = chaveAES;
-                SessaoAtual.IVAES   = ivAES;
+                // chave AES/IV ficam na sessão local desta ligação
+                // (cada cliente tem a sua, em vez de partilharem a mesma chave)
+                sessao.ChaveAES = chaveAES;
+                sessao.IVAES   = ivAES;
 
                 
                 string credenciais = operacao + "|" + username + "|" + password;
@@ -92,12 +99,13 @@ namespace ChatClient
 
                 if (protocol.GetCmdType() == ProtocolSICmdType.ACK)
                 {
-                    SessaoAtual.Username = username;
-                    SessaoAtual.IP       = ip;
+                    // gravar na sessão local desta ligação
+                    sessao.Username = username;
+                    sessao.IP       = ip;
                     return true;
                 }
 
-                // NACK — operação falhada
+                // operação falhada
                 stream.Close();
                 tcpClient.Close();
                 return false;
